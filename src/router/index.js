@@ -68,6 +68,21 @@ const routes = [
     component: () => import('../views/Stock.vue')
   },
   {
+    path: '/EntreeMatierePremiere',
+    name: 'EntreeMatierePremiere',
+    component: () => import('../views/EntreeMatierePremiere.vue')
+  },
+  {
+    path: '/EntreeProduitFinal',
+    name: 'EntreeProduitFinal',
+    component: () => import('../views/EntreeProduitFinal.vue')
+  },
+  {
+    path: '/SortieMatierePremiere',
+    name: 'SortieMatierePremiere',
+    component: () => import('../views/SortieMatierePremiere.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue')

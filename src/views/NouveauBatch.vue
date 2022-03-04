@@ -23,6 +23,9 @@
         <input type="text" placeholder="20" required v-model="cntrlfnl">
         </div>
         <h2>PRODUIT</h2>
+        <h1>QUANTITÉ</h1>
+
+        <div class="line-pr-qt1">
         <div  class="ddown-batch">
         <div class="ddown-select-batch">
       <span class="slct-batch">CUVETTE DE WC SUSPENDUE</span>
@@ -40,11 +43,12 @@
         </li>
       </ul>
   </div>
-  
   <div class="qt1-batch">
-        <label>QUANTITÉ</label>
         <input type="text" placeholder="2000" required v-model="quantite1">
         </div>
+        </div>
+
+        <div class="line-pr-qt2">
         <div  class="ddown2-batch">
         <div class="ddown-select2-batch">
       <span class="slct2-batch">LAVABO MURAL</span>
@@ -65,6 +69,9 @@
   <div class="qt2-batch">
         <input type="text" placeholder="2000" required v-model="quantite2">
         </div>
+        </div>
+
+        <div class="line-pr-qt3">
         <div  class="ddown3-batch">
         <div class="ddown-select3-batch">
       <span class="slct3-batch">LAVE MAIN ETNA</span>
@@ -85,6 +92,8 @@
   <div class="qt3-batch">
         <input type="text" placeholder="2000" required v-model="quantite3">
         </div>
+        </div>
+
     </form>
     <button class="btin-batch" @click="goToProduction()"> VALIDER 
     <img class="img-vad-batch" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
@@ -124,7 +133,7 @@ export default {
        
        this.toggle = !this.toggle
        console.log(this.toggle)
-       var bloc = document.getElementById('blcks')
+       var bloc = document.getElementById('blcks-batch')
        
        if (this.toggle === true) {
            bloc.style.display  = 'block'
@@ -141,7 +150,7 @@ export default {
        
        this.boggle = !this.boggle
        console.log(this.boggle)
-       var liss = document.getElementById('blcks2')
+       var liss = document.getElementById('blcks2-batch')
        
        if (this.boggle === true) {
            liss.style.display  = 'block'
@@ -158,7 +167,7 @@ export default {
        
        this.moggle = !this.moggle
        console.log(this.moggle)
-       var liss = document.getElementById('blcks3')
+       var liss = document.getElementById('blcks3-batch')
        
        if (this.moggle === true) {
            liss.style.display  = 'block'
@@ -428,12 +437,15 @@ h2 {
     
     
 }
-.qt1-batch label {
-    margin-left: -323px;
-    float: left;
+h1 {
     margin-top: 178px;
+    margin-left: -325px;
     position: absolute;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
     letter-spacing: 1px;
+    color: #006D77;
+    font-size: 14px;
 }
 .ddown2-batch {
     width: 33rem;
@@ -623,5 +635,109 @@ h2 {
   display: inline-block;
   margin-top: -0.2%;
   margin-left: 79px;
+}
+
+
+.ddown4-batch {
+    width: 33rem;
+    position: absolute;
+    margin-left: -921px;
+    margin-top: 216px;
+ }
+ .ddown-select4-batch {
+   padding: 8px 38px 30px 2px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #006D77;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: -46px;
+   
+ }
+ .slct4-batch{
+    letter-spacing: 1px;
+    margin-left: -256px;
+    color: #006D77;
+    float: left;
+    position: absolute;
+    margin-top: 2px;
+    
+}
+ 
+.ddown-icon4-batch  {
+    margin-left: 262px;
+    position: absolute;
+    width: 25px;
+}
+.blc-link4-batch {
+    padding: 0 22px;
+    list-style-type: none;
+    background-color: rgb(255, 255, 255);
+    /* margin-right: 0px; */
+    margin-left: -46px;
+    border-radius: 10px;
+    margin-top: 7px;
+    display: none;
+    box-shadow: 2px 5px 8px #0000003d;
+    border: 1px solid #006D77;
+    z-index: 100;
+    position: absolute;
+
+ }
+
+ .blc-link4-batch li  {
+   padding: 5px 0;
+   text-align: left;
+   padding-top: 13px;
+    padding-bottom: 13px;
+    
+ }
+ .blc-link4-batch a {
+   font-size: 16px;
+   color: #006D77;
+   margin-right: 361px;
+   text-decoration: none;
+   cursor: pointer;
+   letter-spacing: 1px;
+   font-weight: 700;
+ }
+ .blc-link4-batch a:hover {
+      color: #E29578;
+ }
+
+ .qt4-batch input {
+    margin-left: -349px;
+    width: 28.15%;
+    position: absolute;
+    margin-top: 216px;
+    border-radius: 10px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    border: 1px solid #006D77;
+    background-color: #F0F0F0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: #006D77;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding-left: 11px;
+    
+    
+}
+.qt4-batch label {
+    margin-left: -323px;
+    float: left;
+    margin-top: 178px;
+    position: absolute;
+    letter-spacing: 1px;
+}
+.line-pr-qt1 {
+    margin-top: 2px;
+}
+.line-pr-qt2 {
+    margin-top: 2px;
+}
+.line-pr-qt3 {
+    margin-top: 2px;
 }
 </style>

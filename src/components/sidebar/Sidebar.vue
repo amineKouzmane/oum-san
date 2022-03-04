@@ -42,7 +42,7 @@ export default {
   background-color: var(--sidebar-bg-color);
   float: left;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   left: 0;
   bottom: 0;
