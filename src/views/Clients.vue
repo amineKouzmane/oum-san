@@ -14,111 +14,103 @@
                   <td>ICE</td>
               </tr>
           </thead>
-          <tbody>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>LOT BEL AIR , CHAMPS DE COURSE</td>
-                  <td>+212 622 733 733</td>
-                  <td style="color: #E29578">002541244040042</td>
-             <td> <img @click="openList()" class="threee-dot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
+          <tbody v-if="clients && clients.length">
+              <tr v-for="client of clients" :key=client.id_client style="border-bottom: 1px solid #8d939531">
+                  <td style="color: #006D77">{{client.nom_client}}</td>
+                  <td>{{client.adresse_client}}</td>
+                  <td>{{client.tel_client}}</td>
+                  <td style="color: #E29578">{{client.ice_client}}</td>
+                  <td> 
+                      <img :data-id="client.id_client" @click="openList($event)" class="threee-dot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
             
-                  <ul id="lis" class="lis-links-client">
-                     <li>
-                         <a @click="goToUpdateClient()">Modifier</a>
-                     </li>
-                     <li>
-                         <a @click="goToAffCommand()">Afficher</a>
-                     </li>
-                     <li>
-                         <a @click="filterClient($event)">Supprimer</a>
-                     </li>
-                      <li>
-                         <a @click="goToLettrage()">Lettrage</a>
-                     </li>
-                      <li>
-                         <a @click="filterClient($event)">Télécharger facture</a>
-                     </li>
-                 </ul>
-             </td>
+                      <ul :id="client.id_client" class="lis-links-client">
+                        <li>
+                            <a @click="goToUpdateClient($event)">Modifier</a>
+                        </li>
+                        <li>
+                            <a @click="Delete($event)">Supprimer</a>
+                        </li>
+                          
+                      </ul>
+                  </td>
 
               </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">FOUAD KOUZMANE</td>
-                  <td>DAR BOUAAZA, RUE 15..</td>
-                  <td>+212 689 899 453</td>
-                  <td style="color: #E29578">002821935003012</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">AMINE KOUZMANE</td>
-                  <td>OUED FES , HAY ALHADIKA 1</td>
-                  <td>+212 645 987 753</td>
-                  <td style="color: #E29578">002281946000011</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">MOHAMMED KAMAL</td>
-                  <td>OUED FES , HAY ALHADIKA 2</td>
-                  <td>+212 657 722 721</td>
-                  <td style="color: #E29578">002540045000012</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">AHMED LAZRAK</td>
-                  <td>OUED FES , DAIAA</td>
-                  <td>+212 623 722 711</td>
-                  <td style="color: #E29578">002879045000016</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #006D77">FOUAD MOHAMMED</td>
-                  <td>RTE AIN CHKEF , RUE 40</td>
-                  <td>+212 614 712 313</td>
-                  <td style="color: #E29578">002678905000010</td>
-              </tr>
-              <tr>
-                  <td style="color: #006D77">AMIR SENHAJI</td>
-                  <td>RUE LALLA AMINA, FES </td>
-                  <td>+212 643 642 123</td>
-                  <td style="color: #E29578">002668935000022</td>
-              </tr>
+              
           </tbody>
       </table>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'Clients',
     data(){
         return  {
             toggle: false,
-            boggle: false
+            boggle: false,
+            clients:[],
+            selected_item:''
             
         }
     },
 
+    mounted() {
+
+    axios.get(`https://api.oum-san.com/clients`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.clients = response.data["data"]
+      console.log(response.data["data"])
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+    },
+
   methods:{
-   goToUpdateClient(){
-   this.$router.push('/ModifierClient'); 
+   goToUpdateClient(event){ 
+     const client_to_update = this.clients.find(item => item.id_client === this.selected_item);
+    var client_data = {id_client: this.selected_item ,
+                      nom_client: client_to_update['nom_client'],
+                      tel_client: client_to_update['tel_client'],
+                      adresse_client: client_to_update['adresse_client'],
+                      ice_client: client_to_update['ice_client']};
+    this.$router.push({name: 'ModifierClient', params: {client : JSON.stringify(client_data)} }  ); 
    },
 
    goToNewClient(){
    this.$router.push('/NouveauClient'); 
    },
-   openList(){
+   openList(event){
        
        this.boggle = !this.boggle
-       console.log(this.boggle)
-       var liss = document.getElementById('lis')
+       var id = event.target.getAttribute('data-id')
+       var liss = document.getElementById(id)
+       this.selected_item = id
        
        if (this.boggle === true) {
-           liss.style.display  = 'block'
-           console.log("this is if")
-           
+           liss.style.display  = 'block'     
        }
        else {
-           liss.style.display  = 'none'
-           console.log("this is else")
-           
+           liss.style.display  = 'none'    
        }
-   }
+   },
+   Delete(event){
+     var delete_id = "?id_client="+this.selected_item
+     axios.delete(`https://api.oum-san.com/clients`+delete_id)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      console.log(response.data["data"])
+      window.location.reload();
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
+        }
    
   }
 }
@@ -205,7 +197,7 @@ tbody td {
     list-style-type: none;
     background-color: #006D77;
     /* margin-right: 0px; */
-    margin-left: -211px;
+    margin-left: -150px;
     border-radius: 10px;
     margin-top: 15px;
     display: none;

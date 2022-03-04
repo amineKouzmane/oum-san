@@ -45,7 +45,8 @@ const routes = [
   {
     path: '/ModifierClient',
     name: 'ModifierClient',
-    component: () => import('../views/ModifierClient.vue')
+    component: () => import('../views/ModifierClient.vue'),
+    props : true
   },
   {
     path: '/Production',

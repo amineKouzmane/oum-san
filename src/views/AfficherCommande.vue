@@ -1,15 +1,15 @@
 <template>
     <form>
         <div class="num-cmd">
-            <p>22122021133000Y6X</p>
+            <p>{{commande['id_commande']}}</p>
         </div>
         <div class="clnt">
         <label>CLIENT :</label>
-            <p>HAMID EL ASRI</p>
+            <p>{{commande['nom_client']}}</p>
         </div>
         <div class="dte">
         <label>DATE :</label>
-            <p>22/06/2022</p>
+            <p>{{commande['date_commande']}}</p>
         </div>
         <div class="tbl-cmd">
       <table width="100%">
@@ -20,35 +20,86 @@
                   <td>PRIX UNITAIRE</td>
               </tr>
           </thead>
-          <tbody>
-              <tr style="border-bottom: 1px solid #FFFFFF">
-                  <td style="color: #E29578">CUVETTE DE WC SUSPENDUE</td>
-                  <td style="color: #3D3C3C">5</td>
-                  <td>1,000.00 </td>
+          <tbody v-if="facture && facture.length">
+              <tr v-for="ligne of facture" :key=ligne.nom_article style="border-bottom: 1px solid #FFFFFF">
+                  <td style="color: #E29578">{{ligne.nom_article}}</td>
+                  <td style="color: #3D3C3C">{{ligne.quantite}}</td>
+                  <td>{{ligne.total_ligne}}</td>
 
-              </tr>
-              <tr style="border-bottom: 1px solid #FFFFFF">
-                  <td style="color: #E29578">LAVABO MURALX</td>
-                  <td style="color: #3D3C3C">5</td>
-                  <td>2,000.00 </td>
-                  
-              </tr>
-              <tr>
-                  <td style="color: #E29578">LAVE MAIN ETNA</td>
-                  <td style="color: #3D3C3C">2</td>
-                  <td>2,000.00 </td>
               </tr>
           </tbody>
       </table>
   </div>
         <div class="prix-ttl">
-            <p>19,000.00</p>
+            <p>{{commande['total_commande']}}</p>
         </div>
     </form>
 </template>
 
-<script>
-export default {
+<script> 
+import axios from 'axios'; 
+export default { 
+
+    data() {
+        return {
+            nom_client: '',
+            tel_client: '',
+            adresse_client: '',
+            ice_client: '',
+            toggle: false,
+            moggle: false,
+            moggle: false,
+            commande : {},
+            lignes_commande :[],
+            ligne_commande: [],
+            articles :[],
+            facture : [],
+            articles_noms:{}
+
+        }
+    },
+    methods:{
+        getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+    },
+
+     mounted() {   
+        var commande_object = JSON.parse(this.$route.params.commande);
+        this.commande['id_commande'] = commande_object['id_commande'];
+        this.commande['nom_client'] = commande_object['nom_client'].toUpperCase();
+        this.commande['date_commande'] = commande_object['date_commande'];
+        this.commande['total_commande'] = commande_object['total_commande'];
+        
+      axios.get(`https://api.oum-san.com/articles`)
+      .then(response => {
+      // JSON responses are automatically parsed.
+      this.articles = response.data["data"] 
+      this.articles.forEach((element, index, array) => {
+          this.articles_noms[element.id_article] = element['libelle_article'] 
+         })
+            
+      }).catch(e => {this.errors.push(e)});
+
+    axios.get(`https://api.oum-san.com/lignescommande`)
+      .then(response => {
+      // JSON responses are automatically parsed.
+      this.lignes_commande = response.data["data"]
+      this.ligne_commande = this.lignes_commande.filter(item => item.id_commande === this.commande['id_commande'])
+      this.ligne_commande.forEach((element, index, array) => {
+
+       console.log('nom',this.articles_noms)
+
+        var ligne = {}
+        ligne['nom_article']= this.articles_noms[element.id_article]
+        ligne['quantite']= element.quantite_ligne_commande
+        ligne['total_ligne'] = element.prix_ligne_commande
+         console.log(ligne)
+         this.facture.push(ligne)
+         })
+         console.log("factures",this.facture)
+         }).catch(e => {this.errors.push(e)}) 
+       }
 
 }
 </script>

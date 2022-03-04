@@ -4,49 +4,71 @@
     <form>
         <div class="nom-client-mod">
         <label>NOM</label>
-        <input type="text" placeholder="HAMID EL ASRI" required v-model="nomclient">
+        <input type="text" :placeholder="client.nom_client" v-model="nom_client">
         </div>
         <div class="tel-client-mod">
         <label>TÉLÉPHONE</label>
-        <input type="text" placeholder="+212 614 712 313" required v-model="telclient">
+        <input type="text" :placeholder="client.tel_client" required v-model="tel_client">
         </div>
         <div class="ice-client-mod">
         <label>ICE</label>
-        <input type="text" placeholder="002668935000022" required v-model="iceclient">
+        <input type="text" :placeholder="client.ice_client" required v-model="ice_client">
         </div>
         <div class="adresse-client-mod">
         <label>ADRESSE</label>
-        <input type="text" placeholder="LOT BEL AIR , CHAMPS DE COURSE" required v-model="adresseclient">
+        <input type="text" :placeholder="client.adresse_client" required v-model="adresse_client">
         </div>
     </form>
     <button class="btin-mod" @click="goToClient()"> MODIFIER 
     <img class="img-vad-mod" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
   </button>
   
-   <!--<p>NOM: {{nomclient}}</p>
-    <p>TELEPHONE: {{telclient}}</p>
-    <p>ICE: {{iceclient}}</p>
-    <p>ADRESSE: {{adresseclient}}</p>-->
-
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+    
+      mounted() {   
+        var client_object = JSON.parse(this.$route.params.client);
+        this.client['nom_client'] = client_object['nom_client'];
+        this.client['tel_client'] = client_object['tel_client'];
+        this.client['ice_client'] = client_object['ice_client'];
+        this.client['adresse_client'] = client_object['adresse_client'];
+        
+      },
+
     data() {
         return {
-            nomclient: '',
-            telclient: '',
-            quantite1: '',
-            quantite2: '',
-            quantite3: '',
+            nom_client: '',
+            tel_client: '',
+            adresse_client: '',
+            ice_client: '',
             toggle: false,
             moggle: false,
-            moggle: false
+            moggle: false,
+            client : { }
         }
     },
     methods: {
         goToClient(){
-   this.$router.push('/Clients'); 
+            let self = this
+        var client_object = JSON.parse(this.$route.params.client)
+        this.client['nom_client'] = this.nom_client ? this.nom_client : client_object['nom_client'];
+        this.client['tel_client'] = this.tel_client ? this.tel_client : client_object['tel_client'];
+        this.client['ice_client'] = this.ice_client ? this.ice_client : client_object['ice_client'];
+        this.client['adresse_client'] = this.adresse_client ? this.adresse_client : client_object['adresse_client'];
+        this.client['id_client'] = client_object['id_client']
+        console.log('this.client button',this.client)
+    axios.put('https://api.oum-san.com/clients', null, { params: this.client })
+        .then(function (response) {
+            console.log(response);
+            self.$router.push('/Clients');;
+                })
+        .catch(function (error) {
+            console.log(error);
+  });
+    
    }
 
     }

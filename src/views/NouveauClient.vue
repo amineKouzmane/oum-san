@@ -4,52 +4,91 @@
     <form>
         <div class="nom-client">
         <label>NOM</label>
-        <input type="text" placeholder="HAMID EL ASRI" required v-model="nomclient">
+        <input type="text" placeholder="NOM CLIENT" required v-model="nom_client">
         </div>
         <div class="tel-client">
         <label>TÉLÉPHONE</label>
-        <input type="text" placeholder="+212 614 712 313" required v-model="telclient">
+        <input type="text" placeholder="NUMERO TEL" required v-model="tel_client">
         </div>
         <div class="ice-client">
         <label>ICE</label>
-        <input type="text" placeholder="002668935000022" required v-model="iceclient">
+        <input type="text" placeholder="ICE CLIENT" required v-model="ice_client">
         </div>
         <div class="adresse-client">
         <label>ADRESSE</label>
-        <input type="text" placeholder="LOT BEL AIR , CHAMPS DE COURSE" required v-model="adresseclient">
+        <input type="text" placeholder="ADRESSE CLIENT" required v-model="adresse_client">
         </div>
     </form>
     <button class="btin" @click="goToClient()"> VALIDER 
     <img class="img-vad" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
   </button>
   
-   <!--<p>NOM: {{nomclient}}</p>
-    <p>TELEPHONE: {{telclient}}</p>
-    <p>ICE: {{iceclient}}</p>
-    <p>ADRESSE: {{adresseclient}}</p>-->
-
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
-            nomclient: '',
-            telclient: '',
-            quantite1: '',
-            quantite2: '',
-            quantite3: '',
+            nom_client: '',
+            tel_client: '',
+            adresse_client: '',
+            ice_client: '',
+            new_client: {},
             toggle: false,
             moggle: false,
-            moggle: false
+            clients: [],
+            last_id_client: null,
         }
     },
+    
     methods: {
-        goToClient(){
-   this.$router.push('/Clients'); 
+        async goToClient(){
+
+    var results= await this.Clients()
+    console.log(results)
+
+     var id_list = []
+         results.forEach((client, index, array) => {
+                id_list.push(Number(client.id_client));
+                });
+        
+          
+    id_list = id_list.sort(function (a, b) {  return a - b;  });
+    console.log(id_list )
+    this.last_id_client = id_list[id_list.length - 1] ;
+    console.log('id last : ',this.last_id_client + 1);
+   
+    this.new_client['nom_client'] = this.nom_client;
+    this.new_client['adresse_client'] = this.adresse_client;
+    this.new_client['ice_client'] = this.ice_client;
+    this.new_client['tel_client'] = this.tel_client;
+    this.new_client['id_client'] = Number(this.last_id_client )+ 1;
+    console.log(this.new_client);
+    axios.post('https://api.oum-san.com/clients', null, { params: this.new_client })
+        .then(function (response) {
+            console.log(response);
+                })
+        .catch(function (error) {
+            console.log(error);
+  });
+
+  
+  this.$router.push('/Clients'); 
+
+   
+   },
+
+   async Clients(){
+       let clients = await axios.get(`https://api.oum-san.com/clients`);
+       this.clients = clients.data["data"]
+       return clients.data["data"]
    }
 
-    }
+    },
+    created(){
+       
+},
 }
 </script>
 

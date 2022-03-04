@@ -2,18 +2,12 @@
   <div class="three">
   <div  class="dropdown">
     <div class="dropdown-select">
-      <span class="select">CLIENT</span>
+      <span class="select">{{filter_client_value}}</span>
       <img @click="openModal()" class="dropdown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
     </div>
-      <ul id="blocks" class="bloc-links">
-        <li>
-          <a @click="filterClient($event)">AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
+      <ul  id="blocks" class="bloc-links">
+        <li v-for="(value, name) in client_commande_noms" :key=name >
+          <a @click="filterClient($event)">{{value}}</a>
         </li>
       </ul>
   </div>
@@ -38,16 +32,16 @@
                   <td>LETTRAGE</td>
               </tr>
           </thead>
-          <tbody>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-                  <td> <img data-id="22122021133000T6X" @click="openList($event)" class="three-dot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
+          <tbody v-if="commandes && commandes.length">
+              <tr v-for="commande of commandes" :key=commande.id_commande style="border-bottom: 1px solid #8d939531">
+                  <td style="color: #E29578">{{commande.id_commande}}</td>
+                  <td style="color: #006D77">{{client_commande_noms[commande.id_client]}}</td>
+                  <td>{{commande.date_commande}}</td>
+                  <td>{{commande.total_commande}} </td>
+                  <td style="color: #E29578">{{Math.trunc(commande.pourcentage_lettrage)}} %</td>
+                  <td> <img :data-id="commande.id_commande" @click="openList($event)" class="three-dot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
             
-                  <ul id="22122021133000T6X" class="lis-links">
+                  <ul :id="commande.id_commande" class="lis-links">
                      <li>
                          <a @click="goToUpdateCommand()">Modifier</a>
                      </li>
@@ -66,68 +60,6 @@
                  </ul>
              </td>
 
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-              </tr>
-              <tr>
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td style="color: #006D77">HAMID EL ASRI</td>
-                  <td>22/12/2021</td>
-                  <td>3,000.00 </td>
-                  <td style="color: #E29578">80%</td>
-                  <td> <img data-id="22122021133000Y6X" @click="openList($event)" class="three-dot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
-            
-                  <ul id="22122021133000Y6X" class="lis-links">
-                     <li>
-                         <a @click="goToUpdateCommand()">Modifier</a>
-                     </li>
-                     <li>
-                         <a @click="goToAffCommand()">Afficher</a>
-                     </li>
-                     <li>
-                         <a @click="Delete()">Supprimer</a>
-                     </li>
-                      <li>
-                         <a @click="goToLettrage()">Lettrage</a>
-                     </li>
-                      <li>
-                         <a @click="filterClient($event)">Télécharger facture</a>
-                     </li>
-                 </ul>
-             </td>
               </tr>
           </tbody>
       </table>
@@ -135,33 +67,119 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'Ventes',
     data(){
         return  {
             toggle: false,
-            boggle: false
+            boggle: false,
+            filter_client_value: 'CLIENT',
+            commandes: [],
+            clients:[],
+            selected_item:'',
+            client_commande_noms:{}
             
         }
-    },
+    }, 
+    mounted(){ 
+      var client_merge = undefined
+      axios.get(`https://api.oum-san.com/clients`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.clients = response.data["data"]
+      console.log(response.data["data"])
 
-  methods:{
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+      axios.get(`https://api.oum-san.com/commandes`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.commandes = response.data["data"]
+      var clients_object = this.clients 
+      clients_object.forEach((element, index, array) => {
+          client_merge = this.clients.find(item => item.id_client === element.id_client)
+          this.client_commande_noms[element.id_client] = client_merge['nom_client'] 
+            })
+    console.log(this.client_commande_noms)
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+    },
+  methods: { 
    goToLettrage(){
-   this.$router.push('/Lettrage'); 
+
+     const commande_to_lettrage = this.commandes.find(item => item.id_commande === this.selected_item);
+    var commande_data = {id_commande: this.selected_item ,
+                        nom_client: this.client_commande_noms[commande_to_lettrage['id_client']],
+                        date_commande: commande_to_lettrage['date_commande'],
+                        total_commande: commande_to_lettrage['total_commande']};
+    console.log('sent',commande_data)
+    this.$router.push({name: 'Lettrage', params: {commande : JSON.stringify(commande_data)} });
    },
    goToAffCommand(){
-   this.$router.push('/AfficherCommande'); 
+     const commande_to_update = this.commandes.find(item => item.id_commande === this.selected_item);
+    var commande_data = {id_commande: this.selected_item ,
+                        nom_client: this.client_commande_noms[commande_to_update['id_client']],
+                        date_commande: commande_to_update['date_commande'],
+                        total_commande: commande_to_update['total_commande']};
+    console.log('sent',commande_data)
+    this.$router.push({name: 'AfficherCommande', params: {commande : JSON.stringify(commande_data)} });
+
    },
    goToUpdateCommand(){
-   this.$router.push('/ModifierCommande'); 
+     
+    //this.$router.push({name: 'ModifierCommande', params: {client : JSON.stringify(client_data)} }); 
+   },
+
+   Delete(){
+     console.log('delete', this.selected_item)
+     var delete_id = "?id_commande="+this.selected_item
+     axios.delete(`https://api.oum-san.com/commandes`+delete_id)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      console.log(response.data["data"])
+      window.location.reload();
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
    },
 
    goToNewCommand(){
    this.$router.push('/NouvelleCommande'); 
-   },
+   }, 
+   getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+    },
 
    filterClient(event){
        console.log(event.target.innerText)
+       this.filter_client_value = event.target.innerText
+       this.toggle = !this.toggle
+       var bloc = document.getElementById('blocks')
+       if (this.toggle === true) {
+           bloc.style.display  = 'block'}
+       else {
+           bloc.style.display  = 'none' } 
+      var id_filter = this.getKeyByValue(this.client_commande_noms, this.filter_client_value)
+      
+      axios.get(`https://api.oum-san.com/commandes?id_client=`+id_filter)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.commandes = response.data["data"]
+      
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
+       
    },
 
    openModal(){
@@ -172,32 +190,23 @@ export default {
        
        if (this.toggle === true) {
            bloc.style.display  = 'block'
-           console.log("this is if")
-           
-       }
+           }
        else {
            bloc.style.display  = 'none'
-           console.log("this is else")
-           
-       }
+           }
    },
    openList(event){
        
        this.boggle = !this.boggle
-       console.log(this.boggle)
        var id = event.target.getAttribute('data-id')
        var liss = document.getElementById(id)
-       console.log(liss)
+       this.selected_item = id
        
        if (this.boggle === true) {
-           liss.style.display  = 'block'
-           console.log("this is if")
-           
+           liss.style.display  = 'block'  
        }
        else {
-           liss.style.display  = 'none'
-           console.log("this is else")
-           
+           liss.style.display  = 'none'  
        }
    }
    

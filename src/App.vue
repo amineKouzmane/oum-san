@@ -1,7 +1,8 @@
 <script>
 import HeaderBar from '@/components/HeaderBar'
 import Sidebar from '@/components/sidebar/Sidebar.vue'
-import { sidebarWidth } from '@/components/sidebar/state'
+import { sidebarWidth } from '@/components/sidebar/state' 
+
 export default {
   components: { Sidebar,HeaderBar },
   setup() {
