@@ -12,11 +12,11 @@
                  <input type="date" placeholder="22/02/2021" required v-model="date">
             </div>
             <div class="mnt-lett">
-                 <input type="text" placeholder="MONTANT" required v-model="client">
+                 <input type="text" placeholder="MONTANT" required v-model="montant">
             </div>
             <div  class="ddown-lett">
         <div class="ddown-select-lett">
-      <span class="slct-lett">LAVABO MURAL</span>
+      <span class="slct-lett">{{type_paiement_input}}</span>
       <img @click="openModalLettrage()" class="ddown-icon-lett" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
     </div>
       <ul id="blcks-lett" class="blc-link-lett">
@@ -28,7 +28,7 @@
         </li>
       </ul>
   </div>
-  <button class="btn-lett" @click="PopupLettrageClose()"> VALIDER 
+  <button class="btn-lett" @click="SubmitLettrage()"> VALIDER 
     <img class="img-vad-lett" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
   </button>
     
@@ -37,11 +37,11 @@
     <form>
         <div class="clnt-let">
         <label>CLIENT :</label>
-            <p>HAMID EL ASRI</p>
+            <p>{{commande['nom_client']}}</p>
         </div>
         <div class="dte-let">
         <label>DATE :</label>
-            <p>22/06/2022</p>
+            <p>{{commande['date_commande']}}</p>
         </div>
         <div class="tbl-cmd-let">
       <table width="100%">
@@ -52,40 +52,29 @@
                   <td>MONTANT</td>
               </tr>
           </thead>
-          <tbody>
-              <tr style="border-bottom: 1px solid #FFFFFF">
-                  <td style="color: #E29578">22/12/2021</td>
-                  <td style="color: #3D3C3C">CHEQUE</td>
-                  <td>1,000.00 </td>
+          <tbody v-if="lettrages && lettrages.length">
+              <tr v-for="lettrage of lettrages" :key=lettrage.id_lettrage style="border-bottom: 1px solid #FFFFFF">
+                  <td style="color: #E29578">{{lettrage.date_lettrage}}</td>
+                  <td style="color: #3D3C3C">{{lettrage.type_paiement_lettrage}}</td>
+                  <td>{{lettrage.montant_lettrage}}</td>
 
-              </tr>
-              <tr style="border-bottom: 1px solid #FFFFFF">
-                  <td style="color: #E29578">24/12/2021</td>
-                  <td style="color: #3D3C3C">ESPECE</td>
-                  <td>2,000.00 </td>
-                  
-              </tr>
-              <tr>
-                  <td style="color: #E29578">28/12/2021</td>
-                  <td style="color: #3D3C3C">ESPECE</td>
-                  <td>2,000.00 </td>
               </tr>
           </tbody>
       </table>
   </div>
         <div class="mnt-rest-let">
            <label>MONTANT RESTANT :</label>
-            <p>2,000.00</p>
+            <p>{{Number(commande['total_commande']) - Number(this.total_lettrage)}}</p>
         </div>
         <div class="mnt-payer-let">
             <label>MONTANT PAYEE :</label>
-            <p>5,000.00</p>
+            <p>{{this.total_lettrage}}</p>
         </div>
     </form>
 </template>
 
 <script>
-
+import axios from 'axios'; 
 
 export default {
     name: 'Lettrage',
@@ -93,7 +82,15 @@ export default {
         return  {
             toggle: false,
             boggle: false,
-            coggle: false
+            coggle: false,
+            commande:{},
+            lettrages:[],
+            total_lettrage:0,
+            montant_left:0,
+            type_paiement_input: 'TYPE PAIEMENT',
+            date:'',
+            montant:''
+
         }
     },
     methods: {
@@ -122,7 +119,27 @@ export default {
        
 
    },
-        openModalLettrage(){
+   SubmitLettrage(){
+       this.PopupLettrageClose();
+       var new_lettrage = {};
+       let self =this
+       new_lettrage['date_lettrage'] = this.date;
+       new_lettrage['id_commande'] = this.commande['id_commande'];
+       new_lettrage['montant_lettrage'] = this.montant;
+       new_lettrage['type_paiement_lettrage'] = this.type_paiement_input; 
+       console.log("lettrage new", new_lettrage)
+
+       axios.post('https://api.oum-san.com/lettrages', null, { params:new_lettrage })
+        .then(function (response) {
+            console.log(response);
+                self.$router.push('/Ventes'); })
+        .catch(function (error) {
+            console.log(error);
+  });
+
+
+   },
+    openModalLettrage(){
        
        this.toggle = !this.toggle
        console.log(this.toggle)
@@ -130,18 +147,43 @@ export default {
        
        if (this.toggle === true) {
            bloc.style.display  = 'block'
-           console.log("this is if")
            
        }
        else {
            bloc.style.display  = 'none'
-           console.log("this is else")
            
        }
    },
    ListLettrage(event){
-       console.log(event.target.innerText)
+       console.log(event.target.innerText);
+       this.type_paiement_input = event.target.innerText
+       this.toggle = !this.toggle
+       var bloc = document.getElementById('blcks-lett')
+       if (this.toggle === true) {
+           bloc.style.display  = 'block'}
+       else {
+           bloc.style.display  = 'none' } 
    }
+    },
+
+    mounted(){
+        var commande_object = JSON.parse(this.$route.params.commande);
+        this.commande['id_commande'] = commande_object['id_commande'];
+        this.commande['nom_client'] = commande_object['nom_client'].toUpperCase();
+        this.commande['total_commande'] = commande_object['total_commande'];  
+        this.commande['date_commande'] = commande_object['date_commande'];  
+        console.log(this.commande)    
+
+    axios.get(`https://api.oum-san.com/lettrages`)
+      .then(response => {
+      // JSON responses are automatically parsed.
+      this.lettrages = response.data["data"] 
+      this.lettrages = this.lettrages.filter(item => item.id_commande === this.commande['id_commande'])
+      this.lettrages.forEach((element, index, array) => {
+          this.total_lettrage = Number(this.total_lettrage) + Number(element.montant_lettrage);
+          
+            }) 
+      }).catch(e => {this.errors.push(e)});
     }
 }
 </script>

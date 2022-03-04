@@ -2,6 +2,7 @@
   
     <h3>NOUVELLE COMMANDE</h3>
     <form>
+<<<<<<< HEAD
           <label>CLIENT</label>
         <div  class="ddown-client">
         <div class="ddown-select-client">
@@ -20,6 +21,22 @@
         </li>
       </ul>
   </div>
+=======
+        <div class="client">
+        <label>CLIENT</label>
+        <div  class="dropdown">
+    <div class="dropdown-select">
+      <span class="select">{{filter_client_value}}</span>
+      <img @click="openModal()" class="dropdown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
+    </div>
+      <ul  id="blocks" class="bloc-links">
+        <li v-for="(value, name) in client_commande_noms" :key=name >
+          <a @click="filterClient($event)">{{value}}</a>
+        </li>
+      </ul>
+  </div>
+        </div>
+>>>>>>> axios added
         <div class="date">
         <label>DATE</label>
         <input type="date" placeholder="22/02/2021" required v-model="date">
@@ -114,12 +131,6 @@
   </button>
   </div>-->
   
-   <!--<p>CLIENT: {{client}}</p>
-    <p>DATE: {{date}}</p>
-    <p>QUANTITÉ: {{quantite1}}</p>
-    <p>QUANTITÉ: {{quantite2}}</p>
-    <p>QUANTITÉ: {{quantite3}}</p>-->
-
 </template>
 
 <script>
@@ -206,6 +217,44 @@ form {
     color: #006D77;
     font-size: 14px;
     box-shadow: 2px 5px 8px #0000003d;
+} 
+
+img{
+  width: 25px;
+  height: 25px;
+  padding-left: 10px; 
+  position: absolute;
+  display: inline-block;
+  margin-top: -0.2%;
+}
+
+.dropdown {
+    width: 15rem;
+    position: absolute;
+    margin-left: 96px;
+    margin-top: 110px;
+ }
+ .dropdown-select {
+   padding: 8px 38px 30px 2px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #006D77;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: -46px;
+   
+ }
+ .select{
+    letter-spacing: 1px;
+    margin-left: -112px;
+    color: #006D77;
+    float: left;
+    position: absolute;
+}
+ 
+.dropdown-icon  {
+    margin-left: 117px;
+    position: absolute;
 }
 .ddown-client {
     width: 22rem;

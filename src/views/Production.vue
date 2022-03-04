@@ -14,69 +14,27 @@
                   <td>STATUS</td>
               </tr>
           </thead>
-          <tbody>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">22122021133000Y6X</td>
-                  <td>22/12/2021</td>
-                  <td>100</td>
-                  <td style="color: #E29578">40%</td>
-             <td> <img @click="openList()" class="threee-dot-prd" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
-            
-                  <ul id="lis" class="lis-links-prd">
-                     <li>
-                         <a @click="goToUpdateBatch()">Modifier</a>
-                     </li>
-                     <li>
-                         <a @click="goToAffCommand()">Afficher</a>
-                     </li>
-                     <li>
-                         <a @click="filterClient($event)">Supprimer</a>
-                     </li>
-                      <li>
-                         <a @click="goToLettrage()">Lettrage</a>
-                     </li>
-                      <li>
-                         <a @click="filterClient($event)">Télécharger facture</a>
-                     </li>
-                 </ul>
-             </td>
-
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">21122021154500R4U</td>
-                  <td>21/12/2021</td>
-                  <td>300</td>
-                  <td style="color: #E29578">50%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">21122021154500X7N</td>
-                  <td>23/12/2021</td>
-                  <td>340</td>
-                  <td style="color: #E29578">50%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">21122021154500D3Q</td>
-                  <td>25/12/2021</td>
-                  <td>150</td>
-                  <td style="color: #E29578">50%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">21122021154500A5B</td>
-                  <td>27/12/2021</td>
-                  <td>500</td>
-                  <td style="color: #E29578">50%</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #8d939531">
-                  <td style="color: #E29578">21122021154500Z7V</td>
-                  <td>27/12/2021</td>
-                  <td>200</td>
-                  <td style="color: #E29578">50%</td>
-              </tr>
-              <tr>
-                  <td style="color: #E29578">21122021154500W6C</td>
-                  <td>01/01/2022</td>
-                  <td>100</td>
-                  <td style="color: #E29578">50%</td>
+          <tbody v-if="batches && batches.length">
+              <tr v-for="batch of batches" :key=batch.id_batch style="border-bottom: 1px solid #8d939531">
+                  <td style="color: #E29578">{{batch.id_batch}}</td>
+                  <td>{{batch.timestamp_batch}}</td>
+                  <td>{{batch.qte_control_final!="None"?batch.qte_control_final:0}}</td>
+                  <td style="color: #E29578">{{pourcentage(batch)}}%</td>
+                        <td> 
+                          <img :data-id="batch.id_batch" @click="openList($event)" class="threee-dot-prd" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxNS41NTUgNTE1LjU1NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LDAuMDAwNTA1NDQ3Mzg3Njk1MzEyNSw1MTUuNTU0NTIxNTYwNjY5KSI+PHBhdGggeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBkPSJtNDk2LjY3OSAyMTIuMjA4YzI1LjE2NyAyNS4xNjcgMjUuMTY3IDY1Ljk3MSAwIDkxLjEzOHMtNjUuOTcxIDI1LjE2Ny05MS4xMzggMC0yNS4xNjctNjUuOTcxIDAtOTEuMTM4IDY1Ljk3MS0yNS4xNjcgOTEuMTM4IDAiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0zMDMuMzQ3IDIxMi4yMDhjMjUuMTY3IDI1LjE2NyAyNS4xNjcgNjUuOTcxIDAgOTEuMTM4cy02NS45NzEgMjUuMTY3LTkxLjEzOCAwLTI1LjE2Ny02NS45NzEgMC05MS4xMzggNjUuOTcxLTI1LjE2NyA5MS4xMzggMCIgZmlsbD0iIzAwNmQ3NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZD0ibTExMC4wMTQgMjEyLjIwOGMyNS4xNjcgMjUuMTY3IDI1LjE2NyA2NS45NzEgMCA5MS4xMzhzLTY1Ljk3MSAyNS4xNjctOTEuMTM4IDAtMjUuMTY3LTY1Ljk3MSAwLTkxLjEzOCA2NS45NzEtMjUuMTY3IDkxLjEzOCAwIiBmaWxsPSIjMDA2ZDc3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvc3ZnPg==" />
+                              <ul :id="batch.id_batch" class="lis-links-prd">
+                                <li>
+                                    <a @click="goToUpdateBatch()">Modifier</a>
+                                </li>
+                                <li>
+                                    <a @click="goToAffCommand()">Afficher</a>
+                                </li>
+                                <li>
+                                    <a @click="Delete()">Supprimer</a>
+                                </li>
+                                  
+                            </ul>
+                    </td>
               </tr>
           </tbody>
       </table>
@@ -84,39 +42,79 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'Production',
     data(){
         return  {
             toggle: false,
-            boggle: false
+            boggle: false,
+            selected_item:'',
+            batches: [] 
             
         }
-    },
+    }, 
+
+  mounted(){
+      axios.get(`https://api.oum-san.com/batches`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.batches = response.data["data"]
+      console.log(response.data["data"]) 
+      var batches_object = this.batches 
+})
+    .catch(e => {
+      this.errors.push(e)
+    })
+  },
 
   methods:{
    goToUpdateBatch(){
    this.$router.push('/ModifierBatch'); 
    },
+   pourcentage(batch){ 
+     var steps_in = 0
+     for (const property in batch) {
+       if (batch[property] != "None") {
+          steps_in++;
+       }
+         }
+    return (steps_in-2)/5*100
+      
+   },
+
+    Delete(event){
+     var delete_id = "?id_batch="+this.selected_item
+     axios.delete(`https://api.oum-san.com/batches`+delete_id)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      console.log(response.data["data"])
+      window.location.reload();
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
+        },
 
    goToNewBatch(){
    this.$router.push('/NouveauBatch'); 
    },
-   openList(){
+   openList(event){
        
        this.boggle = !this.boggle
        console.log(this.boggle)
-       var liss = document.getElementById('lis')
+       var id = event.target.getAttribute('data-id')
+       var liss = document.getElementById(id)
+       this.selected_item = id
+       console.log(liss)
        
        if (this.boggle === true) {
-           liss.style.display  = 'block'
-           console.log("this is if")
-           
+           liss.style.display  = 'block'   
        }
        else {
-           liss.style.display  = 'none'
-           console.log("this is else")
-           
+           liss.style.display  = 'none'  
        }
    }
    
@@ -205,7 +203,7 @@ tbody td {
     list-style-type: none;
     background-color: #006D77;
     /* margin-right: 0px; */
-    margin-left: -211px;
+    margin-left: -150px;
     border-radius: 10px;
     margin-top: 15px;
     display: none;
