@@ -170,20 +170,20 @@ export default {
         },
 
     goToVentes(){ 
-            
+      
       var commande = {
         date_commande : this.date,
         id_client: this.getKeyByValue(this.client_commande_noms, this.client_selected)
       }
-
+      var self = this
       var articles_id = this.articles_id
       var last_id_article = this.last_id_article
-
+      
 
       //add commande
       axios.post('https://api.oum-san.com/commandes', null, { params:commande })
         .then(function (response) {
-            var self = this
+            
             var nouvelle_commande = response.data["data"]; 
             var lignes_commandes =[]
             console.log()
@@ -201,19 +201,20 @@ export default {
                 axios.post('https://api.oum-san.com/lignescommande', null, { params: ligne })
                 .then(function (response) {
                   console.log(response);
+                   
                 })
 
             });
 
 
         
-
+          self.$router.push('/Ventes');
                 })
         .catch(function (error) {
             console.log(error);
   });
 
-
+      
     }
 
 
