@@ -78,9 +78,7 @@
             <div class="qte-SMP">
                  <input type="text" placeholder="QUANTITÉ" required v-model="client">
             </div>
-            <div class="zone-SMP">
-                 <input type="text" placeholder="ZONE" required v-model="client">
-            </div>
+            
             <div  class="ddown-SMP">
         <div class="ddown-select-SMP">
       <span class="slct-SMP">MATIÈRE PREMIÈRE</span>
@@ -114,9 +112,7 @@
             <div class="qte-SMP-mod">
                  <input type="text" placeholder="QUANTITÉ" required v-model="client">
             </div>
-            <div class="zone-SMP-mod">
-                 <input type="text" placeholder="ZONE" required v-model="client">
-            </div>
+            
             <div  class="ddown-SMP-mod">
         <div class="ddown-select-SMP-mod">
       <span class="slct-SMP-mod">MATIÈRE PREMIÈRE</span>
@@ -438,25 +434,6 @@ tbody td {
     box-shadow: 2px 5px 8px #0000003d;
     
 }
-.zone-SMP input {
-    margin-left: 48px;
-    width: 15%;
-    position: absolute;
-    margin-top: 189px;
-    border-radius: 10px;
-    padding-top: 11px;
-    padding-left: 11px;
-    padding-bottom: 11px;
-    border: 1px solid #006D77;
-    background-color: #F0F0F0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    color: #006D77;
-    font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 2px 5px 8px #0000003d;
-    
-}
 .ddown-SMP {
     width: 14.5%;
     position: absolute;
@@ -561,25 +538,7 @@ tbody td {
     box-shadow: 2px 5px 8px #0000003d;
     
 }
-.zone-SMP-mod input {
-    margin-left: 48px;
-    width: 15%;
-    position: absolute;
-    margin-top: 189px;
-    border-radius: 10px;
-    padding-top: 11px;
-    padding-left: 11px;
-    padding-bottom: 11px;
-    border: 1px solid #006D77;
-    background-color: #F0F0F0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    color: #006D77;
-    font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 2px 5px 8px #0000003d;
-    
-}
+
  .btn-SMP{
   margin-top: 271px;
   margin-left: 430px;

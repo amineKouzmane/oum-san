@@ -33,70 +33,38 @@
         <div  class="ddown">
         <div class="ddown-select">
       <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000B6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
     </div>
-      <ul id="22122021133000B6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
+      
   </div>
   
        <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
+             <input type="text" placeholder="2000" required>
         </div>
     </div>
 
         <div class="line">
         <div  class="ddown">
-        <div class="ddown-select">
-      <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000Z6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-    </div>
-      <ul id="22122021133000Z6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
-  </div>
+          <div class="ddown-select">
+            <span class="slct">LAVABO DURAL</span>
+          </div>
+      
+      </div>
   
        <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
+             <input type="text" placeholder="2000" required>
         </div>
     </div>
+
     <div class="line">
         <div  class="ddown">
         <div class="ddown-select">
-      <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000T6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
+      <span class="slct">MIROIR DE WC SUSPENDUE</span>
     </div>
-      <ul id="22122021133000T6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
+      
   </div>
   
        <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
+             <input type="text" placeholder="2000" required>
         </div>
     </div>
     
@@ -180,7 +148,7 @@ export default {
 
 <style scoped>
 .line {
-  margin-bottom: -108px;
+  margin-bottom: -115px;
 }
 h3 {
     margin-top: 130px;
