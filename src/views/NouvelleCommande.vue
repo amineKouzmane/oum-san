@@ -2,41 +2,18 @@
   
     <h3>NOUVELLE COMMANDE</h3>
     <form>
-<<<<<<< HEAD
           <label>CLIENT</label>
         <div  class="ddown-client">
         <div class="ddown-select-client">
-      <span class="slct-client">HAMID EL ASRI</span>
+      <span class="slct-client">{{client_selected}}</span>
       <img @click="openModalClient()" class="ddown-icon-client" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
     </div>
       <ul id="blcksClient" class="blc-link-client">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
-  </div>
-=======
-        <div class="client">
-        <label>CLIENT</label>
-        <div  class="dropdown">
-    <div class="dropdown-select">
-      <span class="select">{{filter_client_value}}</span>
-      <img @click="openModal()" class="dropdown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-    </div>
-      <ul  id="blocks" class="bloc-links">
         <li v-for="(value, name) in client_commande_noms" :key=name >
           <a @click="filterClient($event)">{{value}}</a>
         </li>
       </ul>
   </div>
-        </div>
->>>>>>> axios added
         <div class="date">
         <label>DATE</label>
         <input type="date" placeholder="22/02/2021" required v-model="date">
@@ -46,127 +23,117 @@
           <h2>PRODUIT</h2>
           <h3>QUANTITÉ</h3>
         </div>
-    <div class="line">
-        <div  class="ddown">
-        <div class="ddown-select">
-      <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000B6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-    </div>
-      <ul id="22122021133000B6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
-  </div>
-  
-       <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
+    <div v-for="article of articles" :key=article.id_article class="line">
+                <div  class="ddown">
+            <div class="ddown-select">
+              <span class="slct">{{article.libelle_article}}</span>
+            </div>
         </div>
+  
+        <div class="qte">
+             <input type="text" placeholder="QUANTITÉ" :id="(article.id_article)+qte" required >
+        </div>
+              
     </div>
 
-        <div class="line">
-        <div  class="ddown">
-        <div class="ddown-select">
-      <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000Z6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-    </div>
-      <ul id="22122021133000Z6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
-  </div>
-  
-       <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
-        </div>
-    </div>
-    <div class="line">
-        <div  class="ddown">
-        <div class="ddown-select">
-      <span class="slct">CUVETTE DE WC SUSPENDUE</span>
-      <img data-idm="22122021133000T6X" @click="openModal($event)" class="ddown-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxwYXRoIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IkRvd25fQXJyb3dfM18iIGQ9Im02NCA4OGMtMS4wMjMgMC0yLjA0Ny0uMzkxLTIuODI4LTEuMTcybC00MC00MGMtMS41NjMtMS41NjMtMS41NjMtNC4wOTQgMC01LjY1NnM0LjA5NC0xLjU2MyA1LjY1NiAwbDM3LjE3MiAzNy4xNzIgMzcuMTcyLTM3LjE3MmMxLjU2My0xLjU2MyA0LjA5NC0xLjU2MyA1LjY1NiAwczEuNTYzIDQuMDk0IDAgNS42NTZsLTQwIDQwYy0uNzgxLjc4MS0xLjgwNSAxLjE3Mi0yLjgyOCAxLjE3MnoiIGZpbGw9IiMwMDZkNzciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-    </div>
-      <ul id="22122021133000T6X" class="blc-link">
-        <li>
-          <a @click="filterClient($event)" >AMINE KOUZMANE</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">HAMID EL ASRI</a>
-        </li>
-        <li>
-          <a @click="filterClient($event)">FOUAD KOUZMANE</a>
-        </li>
-      </ul>
-  </div>
-  
-       <div class="qt1">
-             <input type="text" placeholder="2000" required v-model="quantite1">
-        </div>
-    </div>
+        
     
-    
-    
-    
-      <button class="btin" @click="goToVentes()"> VALIDER 
+      <button class="btin" @click.prevent="goToVentes()"> VALIDER 
     <img class="img-vad" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
   </button>
     
     </form>
-    <!--<div class="but-NV">
-    <button class="btin" @click="goToVentes()"> VALIDER 
-    <img class="img-vad" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48cGF0aCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGQ9Im0xMiAwYy02LjYxNyAwLTEyIDUuMzgzLTEyIDEyczUuMzgzIDEyIDEyIDEyIDEyLTUuMzgzIDEyLTEyLTUuMzgzLTEyLTEyLTEyem02LjA4MiA5LjQ1Ny02LjUgNi41Yy0uMTk1LjE5NS0uNDUxLjI5My0uNzA3LjI5M3MtLjUxMi0uMDk4LS43MDctLjI5M2wtMy4yNS0zLjI1Yy0uMzkxLS4zOTEtLjM5MS0xLjAyMyAwLTEuNDE0czEuMDIzLS4zOTEgMS40MTQgMGwyLjU0MyAyLjU0MyA1Ljc5My01Ljc5M2MuMzkxLS4zOTEgMS4wMjMtLjM5MSAxLjQxNCAwcy4zOTEgMS4wMjMgMCAxLjQxNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9zdmc+" />
-  </button>
-  </div>-->
+    
   
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
-            client: '',
-            date: '',
-            quantite1: '',
-            quantite2: '',
-            quantite3: '',
             toggle: false,
             moggle: false,
-            moggle: false
+            moggle: false,
+            client_selected:'CLIENT',
+            client_commande_noms:{},
+            clients:[],
+            articles:[],
+            articles_id:{},
+            selected_item:'',
+            selected_articles: [],
+            qte : 'qte',
+            last_id_article: 0,
+            date:'',
         }
     },
+    mounted(){
+
+      axios.get(`https://api.oum-san.com/clients`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.clients = response.data["data"]
+      
+      var clients_object = this.clients 
+      
+      clients_object.forEach((element, index, array) => {
+          var client_merge = this.clients.find(item => item.id_client === element.id_client)
+          this.client_commande_noms[element.id_client] = client_merge['nom_client'] 
+            });
+    
+
+    })
+    .catch(e => {
+      this.errors.push(e)
+    });
+
+    axios.get(`https://api.oum-san.com/articles`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.articles = response.data["data"]
+
+      
+
+      var articles_object = this.articles 
+      articles_object.forEach((element, index, array) => {
+          var article_merge = array.find(item => item.id_article === element.id_article)
+          this.articles_id[element.id_article] = article_merge['libelle_article'] 
+            });
+
+
+
+    });
+
+    axios.get(`https://api.oum-san.com/lignescommande`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+    var id_list = []
+    response.data["data"].forEach((article, index, array) => {
+                id_list.push(Number(article.id_ligne_commande));
+                });
+        
+          
+    id_list = id_list.sort(function (a, b) {  return a - b;  });
+    console.log(id_list)
+    this.last_id_article = id_list[id_list.length - 1] ;
+    console.log('id last : ',this.last_id_article + 1);
+      
+
+
+
+    });
+
+
+
+    
+
+    
+    // .catch(e => {
+    //   this.errors.push(e)
+    // })
+
+    },
     methods: {
-        openModal(event){
-       
-       this.boggle = !this.boggle
-       console.log(this.boggle)
-       var id = event.target.getAttribute('data-idm')
-       var liss = document.getElementById(id)
-       console.log(liss)
-       
-       if (this.boggle === true) {
-           liss.style.display  = 'block'
-           console.log("this is if")
-           
-       }
-       else {
-           liss.style.display  = 'none'
-           console.log("this is else")
-           
-       }
-   },
    openModalClient(){
        
        this.toggle = !this.toggle
@@ -184,6 +151,71 @@ export default {
            
        }
    },
+    
+   getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+    },
+   filterClient(event){
+
+     console.log(event.target.innerText)
+       this.client_selected = event.target.innerText
+       this.toggle = !this.toggle
+       var bloc = document.getElementById('blcksClient')
+       if (this.toggle === true) {
+           bloc.style.display  = 'block'}
+       else {
+           bloc.style.display  = 'none' } 
+      var id_filter = this.getKeyByValue(this.client_commande_noms, this.client_selected)
+      console.log('selected id_client',id_filter)
+        },
+
+    goToVentes(){ 
+            
+      var commande = {
+        date_commande : this.date,
+        id_client: this.getKeyByValue(this.client_commande_noms, this.client_selected)
+      }
+
+      var articles_id = this.articles_id
+      var last_id_article = this.last_id_article
+
+
+      //add commande
+      axios.post('https://api.oum-san.com/commandes', null, { params:commande })
+        .then(function (response) {
+            var self = this
+            var nouvelle_commande = response.data["data"]; 
+            var lignes_commandes =[]
+            console.log()
+            for (const [id, nom] of Object.entries(articles_id)) {
+                  var ligne_commande = {};
+                      ligne_commande['id_commande'] = nouvelle_commande['id_commande'];
+                      ligne_commande['id_article'] = id;
+                      ligne_commande['quantite_ligne_commande'] = document.getElementById(id+"qte").value;
+                      ligne_commande['id_ligne_commande'] = Number(last_id_article)+1;
+                      lignes_commandes.push(ligne_commande)
+                      last_id_article = Number(last_id_article)+1;}
+
+          lignes_commandes.forEach((ligne, index, array) => {
+
+                axios.post('https://api.oum-san.com/lignescommande', null, { params: ligne })
+                .then(function (response) {
+                  console.log(response);
+                })
+
+            });
+
+
+        
+
+                })
+        .catch(function (error) {
+            console.log(error);
+  });
+
+
+    }
+
 
     }
 }
@@ -444,7 +476,7 @@ label {
       color: #E29578;
  }
 
- .qt1 input {
+ .qte input {
     margin-left: -351px;
     /* width: 98.15%; */
     /* position: absolute; */
@@ -464,7 +496,7 @@ label {
     
     
 }
-.qt1 label {
+.qte label {
     margin-left: -323px;
     float: left;
     margin-top: 119px;

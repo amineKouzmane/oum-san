@@ -30,72 +30,20 @@
       </ul>
   </div>
   <h3>MATIÈRES PREMIÈRES</h3>
-  <div class="mp">
-  <div class="box">
-        <h1>MATIERE 1</h1>
-        <h2>D1</h2>
-        <h3>3,209</h3>
-  </div>
-  <div class="box">
-        <h1>MATIERE 2</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-   <div class="box">
-        <h1>MATIERE 3</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-   <div class="box">
-        <h1>MATIERE 4</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-  <div class="box">
-        <h1>MATIERE 5</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-  <div class="box">
-        <h1>MATIERE 6</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-  
-
+  <div v-if="matiere_premiers && matiere_premiers.length" class="mp">
+      <div v-for="matiere of matiere_premiers" :key=matiere.id_matiere_premiere class="box">
+            <h1>{{matiere.libelle_matiere_premiere.toUpperCase()}}</h1>
+            <h2>{{matiere.mesure_matiere_premiere.toUpperCase()}}</h2>
+            <h3>{{matiere.quantite_matiere_premiere.toUpperCase()}}</h3>
+      </div>
   </div>
   <h3>PRODUITS FINAUX</h3>
-    <div class="mp">
-  <div class="box">
-        <h1>PRODUIT 1</h1>
-        <h2>D1</h2>
-        <h3>3,209</h3>
-  </div>
-  <div class="box">
-        <h1>PRODUIT 2</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-   <div class="box">
-        <h1>PRODUIT 3</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-   <div class="box">
-        <h1>PRODUIT 4</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-  <div class="box">
-        <h1>PRODUIT 5</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
-  <div class="box">
-        <h1>PRODUIT 6</h1>
-        <h2>B1</h2>
-        <h3>2,400</h3>
-  </div>
+    <div v-if="articles && articles.length" class="mp">
+        <div v-for="article of articles" :key=article.id_article class="box">
+              <h1>{{article.libelle_article.toUpperCase()}}</h1>
+              <h2>{{article.quantite_article.toUpperCase()}}</h2>
+              <h3>{{article.zone_article.toUpperCase()}}</h3>
+        </div>
   </div>
 
   <div id="overlay-NMP" class="overlay-NMP">
@@ -131,6 +79,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'Stock',
      data(){
@@ -138,8 +87,25 @@ export default {
             toggle: false,
             boggle: false,
             coggle:false,
-            moggle:false
+            moggle:false,
+            matiere_premiers:[],
+            articles : []
         }
+    },
+    mounted(){
+    axios.get(`https://api.oum-san.com/matierespremieres`)
+    .then(response => {
+      this.matiere_premiers = response.data["data"]
+      console.log(response.data["data"])
+
+    });
+    axios.get(`https://api.oum-san.com/articles`)
+    .then(response => {
+      this.articles = response.data["data"]
+      console.log(response.data["data"])
+
+    });
+
     },
     methods: {
           goToSortie(){
